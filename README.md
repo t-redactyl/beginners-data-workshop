@@ -15,7 +15,7 @@ Don't worry about what any of that means yet. Just follow the steps below for yo
 
 ---
 
-## 📋 What You Need Before You Start
+## What You Need Before You Start
 
 - A computer running **macOS**, **Windows**, or **Linux**;
 - An internet connection;
@@ -40,7 +40,7 @@ Keep that window open, as you'll use it for the next few steps.
 
 ---
 
-## 📦 Step 1: Install `uv`
+## Step 1: Install `uv`
 
 `uv` is a small tool that installs Python and manages the workshop's dependencies for you. It saves us from a lot of manual setup headaches.
 
@@ -136,7 +136,7 @@ uv run jupyter lab
 
 Replace `path/to/beginners-data-workshop` with wherever you saved the folder. No need to reinstall anything.
  
-## 🆘 Troubleshooting
+## Troubleshooting
 
 Feel free to ask your mentor if you don't feel comfortable trying these troubleshooting steps alone.
 
