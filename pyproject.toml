@@ -1,0 +1,14 @@
+[project]
+name = "beginners-data-workshop"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jupyterlab==4.6.1",
+    "matplotlib==3.11.0",
+    "notebook==7.6.0",
+    "numpy==2.5.1",
+    "pandas==3.0.3",
+    "seaborn==0.13.2",
+]

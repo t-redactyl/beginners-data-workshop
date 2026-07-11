@@ -1,141 +1,181 @@
-# Humble Data Workshop
+# Beginners Data Workshop
 
-[![Humble Data Workshop](./media/humble-data-logo-transparent.png)](https://humbledata.org)
+<p align="center">
+  <img src="media/humble-data-logo-transparent.png" alt="Humble Data logo" width="500"/>
+</p>
 
-## ℹ️ If you would like to know more about this workshop, please [email us](mailto:contact@humbledata.org).
+Welcome! This workshop is for **absolute beginners**. You don't need any programming experience to follow along. By the end, you'll have Python running on your computer and you'll be exploring real data using tools that professional data scientists use every day.
+
+We'll be using:
+- **Python 3.14**: the programming language;
+- **JupyterLab**: a friendly notebook-style app for writing and running Python;
+- **pandas**, **numpy**, **matplotlib**, **seaborn**: libraries for working with data and making charts.
+
+Don't worry about what any of that means yet. Just follow the steps below for your operating system.
 
 ---
-## Table of Contents
-* [Accessing the materials in browser](#accessing-the-materials-in-browser)
-* [Local environment setup](#local-environment-setup)
-	+ [UV Installation](#uv-installation)
-	+ [Installing Miniconda](#installing-miniconda)
- 		- [Windows](#windows)
- 		- [Unix (Linux/macOS)](#unix-linuxmacos)
-+ [Creating and Activating the Environment](#creating-and-activating-the-environment)
 
-* [License](#license)
+## 📋 What You Need Before You Start
+
+- A computer running **macOS**, **Windows**, or **Linux**;
+- An internet connection;
+- About **20 minutes** for setup;
+- A willingness to learn and problem solve!
+
 ---
 
-### Accessing the materials in browser
+## What Is the Terminal?
 
-During the workshop, we provide the materials for beginners using a JupyterLite server. The materials are currently available in [English](https://humbledata.org/online-workshop/lab/index.html), [Spanish](https://humbledata.org/online_workshop_spanish/lab/index.html), [Italian](https://humbledata.org/online-workshop-italian-v2/lab/index.html), [French](https://humbledata.org/online-workshop-fr/) and [Brazilian Portuguese](https://humbledata.org/online_workshop_ptbr/lab/index.html). Please contact us if you'd like to help out the project by translating the materials into other languages!
+Most of the setup happens in an app called the **Terminal** (on Mac/Linux) or **PowerShell** (on Windows). It's a program where you **type commands** instead of clicking buttons.
 
-**The easiest way to access the materials for beginners is to use our [JupyterLite](https://jupyterlite.readthedocs.io/en/stable/) server.** Select a language below to get started:
+It might look scary - a black or white window with just text - but all you're just going to copy and paste the commands from this guide. You've got this!
 
-The materials can also be cloned from our [GitHub repo](https://github.com/HumbleData/beginners-data-workshop). If you want to use the materials this way, you will need to install them locally. Instructions on how to do this are provided below. Don't worry if you've never done this before—these instructions are designed for complete beginners and will walk you through each step.
-- [English](https://humbledata.org/online-workshop/lab/index.html)
-- [Spanish](https://humbledata.org/online_workshop_spanish/lab/index.html)
-- [Italian](https://humbledata.org/online-workshop-italian-v2/lab/index.html)
-- [French](https://humbledata.org/online-workshop-fr/).
-- [Brazilian Portuguese](https://humbledata.org/online_workshop_ptbr/lab/index.html).
+Here's how to open it:
 
-Please contact us if you'd like to help out the project by translating the materials into other languages! 
+- **Mac:** Press `Cmd + Space`, type `Terminal`, and press `Enter`.
+- **Windows:** Press the `Windows` key, type `PowerShell`, and press `Enter`.
+- **Linux:** Press `Ctrl + Alt + T` (works on most distros), or search for "Terminal" in your apps.
 
-### Installing the materials locally
+Keep that window open, as you'll use it for the next few steps.
 
-If you're interested in learning how to manage your own Python Environment you will need to install the materials locally. Instructions on how to do this are provided below. Don't worry if you've never done this before—these instructions are designed for complete beginners and will walk you through each step.
+---
 
-To run these notebooks on on your machine you must set up a *Python environment*. This document contains instructions on how to run the workshop using either `uv` or `conda` (Miniconda).
+## 📦 Step 1: Install `uv`
 
-Start by cloning the repository and then entering the directory:
+`uv` is a small tool that installs Python and manages the workshop's dependencies for you. It saves us from a lot of manual setup headaches.
+
+### Mac / Linux
+
+Copy this whole line, paste it into your Terminal, and press `Enter`:
+
 ```bash
-git clone https://github.com/HumbleData/beginners-data-workshop.git
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+When it finishes, **close the Terminal window and open a new one**. This makes sure your computer notices the new tool.
+
+### Windows
+Copy this line, paste it into PowerShell, and press `Enter`:
+
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+When it finishes, **close PowerShell and open a new PowerShell window**.
+
+### Verify It Worked
+In your new Terminal / PowerShell window, type:
+
+``` bash
+uv --version
+```
+
+You should see something like uv 0.x.x. If you do: awesome, you're ready for Step 2. If you see "command not found," try closing and reopening the Terminal one more time. If it still doesn't work, ask for help from your mentor.
+ 
+## Step 2: Download the Workshop Files
+You need to get a copy of this workshop onto your computer. If you have git installed, run:
+
+``` bash
+git clone https://github.com/t-redactyl/beginners-data-workshop/
 cd beginners-data-workshop
 ```
-Then follow either the "UV Installation" or "Miniconda Installation" instructions below.
 
-### UV Installation
-To run this workshop locally using `uv`, first you will need to [install uv](https://docs.astral.sh/uv/getting-started/installation/) on your computer.
+Don't have git? No problem. Do this instead:
+- Go to https://github.com/t-redactyl/beginners-data-workshop in your web browser.
+- Click the green "Code" button, then click "Download ZIP".
+- Find the downloaded ZIP file (usually in your Downloads folder), and double-click it to unzip.
+- In your Terminal, navigate into the folder. For example:
 
-Once it is done, follow the instructions below:
+### Mac / Linux:
+``` bash
+cd ~/Downloads/beginners-data-workshop-main
+```
 
-1. Create a virtual python virtual environment 3.10+
-	* `uv venv humble-data-workshop --python 3.10`
-2. Activate the virtual environment.
-	* `source humble-data-workshop/bin/activate`
-3. Install Dependencies
-	* `uv pip install -r requirements.txt`
+### Windows:
+``` powershell
+cd $HOME\Downloads\beginners-data-workshop-main
+```
 
-### Miniconda Installation
+Tip: `cd` means "change directory" (i.e. move into a folder). If you get lost, type `pwd` to see where you are. 
 
-#### Windows
-1. Download the Miniconda installer for Windows from the [official website](https://docs.conda.io/en/latest/miniconda.html)
-2. Double-click the downloaded `.exe` file
-3. Follow the installation prompts:
-   - Click "Next"
-   - Accept the license terms
-   - Select "Just Me" for installation scope
-   - Choose an installation directory (default is recommended)
-   - In "Advanced Options", check "Add Miniconda3 to my PATH environment variable"
-   - Click "Install"
+## Step 3: Install Python and the Workshop's Dependencies
+Still in the same Terminal window, and still inside the `beginners-data-workshop` folder, run:
 
-#### Unix (Linux/macOS)
-1. Download the Miniconda installer for your system from the [official website](https://docs.conda.io/en/latest/miniconda.html)
-2. Open Terminal
-3. Navigate to the directory containing the downloaded file
-4. Make the installer executable:
-   ```bash
-   chmod +x Miniconda3-latest-*-x86_64.sh
-   ```
-5. Run the installer:
-   ```bash
-   ./Miniconda3-latest-*-x86_64.sh
-   ```
-6. Follow the prompts:
-   - Press Enter to review the license agreement
-   - Type "yes" to accept the license terms
-   - Confirm the installation location (default is recommended)
-   - Type "yes" to initialize Miniconda3
+``` bash
+uv sync
+```
 
-#### Creating and Activating the Environment
+That's it! This single command will:
+- Download and install Python 3.14 (if you don't already have it);
+- Create a private "sandbox" folder called .venv inside the project so nothing messes with the rest of your computer;
+- Install all the workshop's libraries at the exact versions we need;
+- The first time you run it, it might take a few minutes;
+- When it finishes, you'll see a summary of everything that was installed.
+ 
+## Step 4: Launch JupyterLab
+You're ready to go! Run:
 
-1. Open a new terminal (Windows: Anaconda Prompt, Unix: Terminal)
-2. Create a new environment named 'humble-data':
-   ```bash
-   conda create -n humble-data python=3.8
-   ```
-3. Activate the environment:
-   - Windows:
-     ```bash
-     conda activate humble-data
-     ```
-   - Unix:
-     ```bash
-     conda activate humble-data
-     ```
-4. Install required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+``` bash
+uv run jupyter lab
+```
 
-5. Start Jupyter Notebook:
-   ```bash
-   jupyter notebook
-   ```
-   This will open Jupyter Notebook in your default web browser. You can now navigate to and open any of the workshop notebooks.
+Your web browser should automatically open a new tab with JupyterLab, a friendly interface where you can open the workshop notebooks (files ending in .ipynb) and run code by clicking a play button.
 
-## Contributing
+If it doesn't open automatically, look in the Terminal for a line that starts with http://localhost:8888/... and click it (or copy and paste it into your browser).
 
-1. Fork this repository
-2. Clone your fork locally
-3. Create a branch for your changes:
-```git checkout -b improve-notebook-x```
+## How to Stop JupyterLab
+When you're done for the day, go back to the Terminal window where JupyterLab is running and press Ctrl + C (yes, Ctrl even on a Mac). It'll ask if you want to shut down — type `y` and press Enter.
+ 
+## Coming Back Later
+Next time you want to work on the workshop, you only need two commands:
 
-4. Make your changes:
+``` bash
+cd path/to/beginners-data-workshop
+uv run jupyter lab
+```
 
-- Keep explanations simple and beginner-friendly
-- Test notebooks in both Google Colab and local environments
-- Follow existing code style and formatting
+Replace `path/to/beginners-data-workshop` with wherever you saved the folder. No need to reinstall anything.
+ 
+## 🆘 Troubleshooting
 
+Feel free to ask your mentor if you don't feel comfortable trying these troubleshooting steps alone.
 
-5. Commit with a clear message:
-```git commit -m "Fix typo in data visualization notebook"```
+<details>
+<summary><strong>"command not found: uv"</strong></summary>
 
-6. Push and create a pull request
+Close all Terminal windows and open a fresh one. If it still doesn't work, the `uv` installer may not have added itself to your system path. Visit https://docs.astral.sh/uv/getting-started/installation/ for platform-specific help.
 
----
+</details>
 
-## License
+<details>
+<summary><strong>"uv sync" fails with a dependency error</strong></summary>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Make sure you're inside the `beginners-data-workshop` folder (run `ls` on Mac/Linux or `dir` on Windows — you should see a `pyproject.toml` file). If you are, copy the full error message and share it with the workshop organisers.
+
+</details>
+
+<details>
+<summary><strong>JupyterLab didn't open in my browser</strong></summary>
+
+Look at the Terminal output for a URL like `http://localhost:8888/lab?token=...`. Copy and paste that into your browser manually.
+
+</details>
+
+<details>
+<summary><strong>Windows says "running scripts is disabled on this system"</strong></summary>
+
+Open PowerShell **as Administrator** (right-click → "Run as Administrator") and run:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+</details>
+ 
+## About This Workshop
+
+<p align="center">
+  <img src="media/humble-data-logo-transparent.png" alt="Humble Data logo" width="500"/>
+</p>
+
+This workshop is run by [Humble Data](https://humbledata.org/), a community organisation that helps people from underrepresented backgrounds get started in data science. 
